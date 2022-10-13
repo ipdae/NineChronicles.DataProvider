@@ -73,7 +73,7 @@ public class NineChroniclesSummaryMutationTest : TestBase, IDisposable
         Assert.Equal(FakeCount, Context.Raiders.Count());
         var result = await ExecuteAsync(query);
         var value = (bool)((Dictionary<string, object>) ((ExecutionNode) result.Data).ToValue())["updateRaiders"];
-        Assert.Equal(true, value);
+        Assert.True(value);
         Assert.Equal(RealCount, Context.Raiders.Count());
         Assert.Equal(RealCount * FixedTotalScore, Context.Raiders.Sum(x=> x.TotalScore));
     }
